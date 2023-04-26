@@ -1,0 +1,44 @@
+[
+    {
+        "description": "Test Card",
+        "tags": {},
+        "label": "Test Card",
+        "version": "1441704616:587121295",
+        "id": "5fbec3b1-1b0f-417d-9059-8b94a47197ed"
+    },
+    {
+        "description": "VANC Data",
+        "tags": {},
+        "label": "VANC Data",
+        "version": "1453880607:123995943",
+        "id": "db3bd465-2772-484f-8fac-830b0471258b"
+    },
+    {
+        "description": "TR-04 Video",
+        "tags": {},
+        "label": "TR-04 Video",
+        "version": "1453880607:123995943",
+        "id": "4857f747-96cf-4ed7-8f4b-9497199f1f25"
+    },
+    {
+        "description": "IS-07 Temperature Readings (C)",
+        "tags": {},
+        "version": "1453880605:374934072",
+        "label": "IS-07 Temperature Readings (C)",
+        "id": "6327c381-1239-41d1-b314-efc719600e26"
+    },
+    {
+        "description": "IS-07 Temperature Readings (F)",
+        "tags": {},
+        "version": "1453880605:374934072",
+        "label": "IS-07 Temperature Readings (F)",
+        "id": "6327c381-1239-41d1-b314-efc719600e26"
+    },
+    {
+        "description": "IS-07 Button",
+        "tags": {},
+        "version": "1453880605:374934072",
+        "label": "IS-07 Button",
+        "id": "fa6258b9-2826-4a0d-81d0-7da9edbc405f"
+    }
+]

@@ -1,0 +1,349 @@
+#%RAML 1.0
+
+# AMWA NMOS Read/Write Node Specification: Read/Write Node API
+# (c) AMWA 2023
+
+title: Read/Write Node
+baseUri: http://api.example.com/x-nmos/rwnode/{version}
+version: v1.0
+mediaType: application/json
+types:
+  Resource: !include schemas/resource_core.json
+  ResourcePatch: !include schemas/resource_core_patch.json
+  Resources: !include schemas/resource_cores.json
+  ErrorSchema: !include schemas/error.json
+documentation:
+  - title: Overview
+    content: |
+      The Read/Write Node API is exposed by NMOS Nodes that support update of resource labels, descriptions and tags.
+/:
+  displayName: Base
+  get:
+    description: List of paths available from this API
+    responses:
+      200:
+        body:
+          example: !include ../examples/rwnodeapi-base-get-200.json
+          type: !include schemas/rwnodeapi-base.json
+/self:
+  displayName: Self
+  get:
+    description: Get core information about this Node
+    responses:
+      200:
+        body:
+          example: !include ../examples/rwnodeapi-resource-get-200.json
+          type: Resource
+  options:
+    description: A pre-flight check generally used for Cross-Origin Resource Sharing (CORS) purposes
+    responses:
+      200:
+      403:
+      404:
+  patch:
+    description: Update core information about this Node
+    body:
+      type: ResourcePatch
+      example: !include ../examples/rwnodeapi-resource-patch.json
+    responses:
+      200:
+        body:
+          example: !include ../examples/rwnodeapi-resource-get-200.json
+          type: Resource
+      400:
+        description: Returned when the request did not meet the schema
+        body:
+          type: ErrorSchema
+      409:
+        description: Returned when the version of the resource is newer than the version in the request
+        body:
+          type: ErrorSchema
+      500:
+        description: Returned when the request did not meet the API's additional constraints
+        body:
+          type: ErrorSchema
+/sources:
+  displayName: Sources
+  get:
+    description: List Sources
+    responses:
+      200:
+        body:
+          example: !include ../examples/rwnodeapi-resources-get-200.json
+          type: Resources
+  /{sourceId}:
+    uriParameters:
+      sourceId:
+        type: string
+        pattern: "^[0-9a-f]{8}-[0-9a-f]{4}-[1-5][0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"
+    get:
+      description: Get core information about a single Source
+      responses:
+        200:
+          body:
+            example: !include ../examples/rwnodeapi-resource-get-200.json
+            type: Resource
+        404:
+          description: Returned when the requested Source ID does not exist
+          body:
+            type: ErrorSchema
+    options:
+      description: A pre-flight check generally used for Cross-Origin Resource Sharing (CORS) purposes
+      responses:
+        200:
+        403:
+        404:
+    patch:
+      description: Update core information about a single Source
+      body:
+        type: ResourcePatch
+        example: !include ../examples/rwnodeapi-resource-patch.json
+      responses:
+        200:
+          body:
+            example: !include ../examples/rwnodeapi-resource-get-200.json
+            type: Resource
+        400:
+          description: Returned when the request did not meet the schema
+          body:
+            type: ErrorSchema
+        404:
+          description: Returned when the requested Source ID does not exist
+          body:
+            type: ErrorSchema
+        409:
+          description: Returned when the version of the resource is newer than the version in the request
+          body:
+            type: ErrorSchema
+        500:
+          description: Returned when the request did not meet the API's additional constraints
+          body:
+            type: ErrorSchema
+/flows:
+  displayName: Flows
+  get:
+    description: List Flows
+    responses:
+      200:
+        body:
+          example: !include ../examples/rwnodeapi-resources-get-200.json
+          type: Flows
+  /{flowId}:
+    uriParameters:
+      flowId:
+        type: string
+        pattern: "^[0-9a-f]{8}-[0-9a-f]{4}-[1-5][0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"
+    get:
+      description: Get core information about a single Flow
+      responses:
+        200:
+          body:
+            example: !include ../examples/rwnodeapi-resource-get-200.json
+            type: Flow
+        404:
+          description: Returned when the requested Flow ID does not exist
+          body:
+            type: ErrorSchema
+    options:
+      description: A pre-flight check generally used for Cross-Origin Resource Sharing (CORS) purposes
+      responses:
+        200:
+        403:
+        404:
+    patch:
+      description: Update core information about a single Flow
+      body:
+        type: ResourcePatch
+        example: !include ../examples/rwnodeapi-resource-patch.json
+      responses:
+        200:
+          body:
+            example: !include ../examples/rwnodeapi-resource-get-200.json
+            type: Resource
+        400:
+          description: Returned when the request did not meet the schema
+          body:
+            type: ErrorSchema
+        404:
+          description: Returned when the requested Flow ID does not exist
+          body:
+            type: ErrorSchema
+        409:
+          description: Returned when the version of the resource is newer than the version in the request
+          body:
+            type: ErrorSchema
+        500:
+          description: Returned when the request did not meet the API's additional constraints
+          body:
+            type: ErrorSchema
+/devices:
+  displayName: Devices
+  get:
+    description: List Devices
+    responses:
+      200:
+        body:
+          example: !include ../examples/rwnodeapi-resources-get-200.json
+          type: Devices
+  /{deviceId}:
+    uriParameters:
+      deviceId:
+        type: string
+        pattern: "^[0-9a-f]{8}-[0-9a-f]{4}-[1-5][0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"
+    get:
+      description: Get core information about a single Device
+      responses:
+        200:
+          body:
+            example: !include ../examples/rwnodeapi-resource-get-200.json
+            type: Device
+        404:
+          description: Returned when the requested Device ID does not exist
+          body:
+            type: ErrorSchema
+    options:
+      description: A pre-flight check generally used for Cross-Origin Resource Sharing (CORS) purposes
+      responses:
+        200:
+        403:
+        404:
+    patch:
+      description: Update core information about a single Device
+      body:
+        type: ResourcePatch
+        example: !include ../examples/rwnodeapi-resource-patch.json
+      responses:
+        200:
+          body:
+            example: !include ../examples/rwnodeapi-resource-get-200.json
+            type: Resource
+        400:
+          description: Returned when the request did not meet the schema
+          body:
+            type: ErrorSchema
+        404:
+          description: Returned when the requested Device ID does not exist
+          body:
+            type: ErrorSchema
+        409:
+          description: Returned when the version of the resource is newer than the version in the request
+          body:
+            type: ErrorSchema
+        500:
+          description: Returned when the request did not meet the API's additional constraints
+          body:
+            type: ErrorSchema
+/senders:
+  displayName: Senders
+  get:
+    description: List Senders
+    responses:
+      200:
+        body:
+          example: !include ../examples/rwnodeapi-resources-get-200.json
+          type: Senders
+  /{senderId}:
+    uriParameters:
+      senderId:
+        type: string
+        pattern: "^[0-9a-f]{8}-[0-9a-f]{4}-[1-5][0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"
+    get:
+      description: Get core information about a single Sender
+      responses:
+        200:
+          body:
+            example: !include ../examples/rwnodeapi-resource-get-200.json
+            type: Sender
+        404:
+          description: Returned when the requested Sender ID does not exist
+          body:
+            type: ErrorSchema
+    options:
+      description: A pre-flight check generally used for Cross-Origin Resource Sharing (CORS) purposes
+      responses:
+        200:
+        403:
+        404:
+    patch:
+      description: Update core information about a single Sender
+      body:
+        type: ResourcePatch
+        example: !include ../examples/rwnodeapi-resource-patch.json
+      responses:
+        200:
+          body:
+            example: !include ../examples/rwnodeapi-resource-get-200.json
+            type: Resource
+        400:
+          description: Returned when the request did not meet the schema
+          body:
+            type: ErrorSchema
+        404:
+          description: Returned when the requested Sender ID does not exist
+          body:
+            type: ErrorSchema
+        409:
+          description: Returned when the version of the resource is newer than the version in the request
+          body:
+            type: ErrorSchema
+        500:
+          description: Returned when the request did not meet the API's additional constraints
+          body:
+            type: ErrorSchema
+/receivers:
+  displayName: Receivers
+  get:
+    description: List Receivers
+    responses:
+      200:
+        body:
+          example: !include ../examples/rwnodeapi-resources-get-200.json
+          type: Receivers
+  /{receiverId}:
+    uriParameters:
+      receiverId:
+        type: string
+        pattern: "^[0-9a-f]{8}-[0-9a-f]{4}-[1-5][0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"
+    get:
+      description: Get core information about a single Receiver
+      responses:
+        200:
+          body:
+            example: !include ../examples/rwnodeapi-resource-get-200.json
+            type: Resource
+        404:
+          description: Returned when the requested Receiver ID does not exist
+          body:
+            type: ErrorSchema
+    options:
+      description: A pre-flight check generally used for Cross-Origin Resource Sharing (CORS) purposes
+      responses:
+        200:
+        403:
+        404:
+    patch:
+      description: Update core information about a single Receiver
+      body:
+        type: ResourcePatch
+        example: !include ../examples/rwnodeapi-resource-patch.json
+      responses:
+        200:
+          body:
+            example: !include ../examples/rwnodeapi-resource-get-200.json
+            type: Resource
+        400:
+          description: Returned when the request did not meet the schema
+          body:
+            type: ErrorSchema
+        404:
+          description: Returned when the requested Receiver ID does not exist
+          body:
+            type: ErrorSchema
+        409:
+          description: Returned when the version of the resource is newer than the version in the request
+          body:
+            type: ErrorSchema
+        500:
+          description: Returned when the request did not meet the API's additional constraints
+          body:
+            type: ErrorSchema
