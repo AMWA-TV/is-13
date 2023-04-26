@@ -18,7 +18,7 @@ The associated `href` is the URL of the Read/Write Node API base resource.
 ...
 "services": [
   {
-    "type": "urn:x-nmos:service:rw-node/v1.0,
+    "type": "urn:x-nmos:service:rw-node/v1.0",
     "href": "http://192.168.10.3/x-nmos/rwnode/v1.0/"
   }
 ]
