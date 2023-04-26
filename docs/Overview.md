@@ -6,50 +6,33 @@
 
 _(c) AMWA 2021, CC Attribution-NoDerivatives 4.0 International (CC BY-ND 4.0)_
 
-> ## Instructions
->
-> **Delete this section after creating a new repo from this template.**
->
->Use this template repo to create a new AMWA NMOS Specification repo.
->
-> Add your content as (GitHub Flavoured) Markdown documents.
->
-> - For consistency with other specifications, keep this `Overview.md` but remove these Instructions.
->
-> Put diagrams (ideally PNG with encapsulated draw.io source) in the `images/` sub-directory.
->
-> Follow the [Style Guide](Style%20Guide.md).
->
-> Make a bulleted list of documents in `README.md` in this directory.
-> 
-> Set the repo name used to get the Lint and Render status in the top-level `README.md` (four changes needed).
->
-> Set the value of `amwa_id` in `.render/_config.yml` to the AMWA-assigned ID.
-
 ## Introduction
 
-> Provide an overview of the Specification.
+AMWA IS-xx specifies how to update distinguishing information in an NMOS system.
 
-Familiarity with the [JT-NM Reference Architecture](https://jt-nm.org/reference-architecture/) is assumed.
+- The [Read/Write Node API](../APIs/ReadWriteNodeAPI.raml) is used to update resource labels, descriptions and tags on a Node.
 
-See also the [NMOS Technical Overview](https://specs.amwa.tv/nmos/main/docs/Technical_Overview.html).
+The Specification includes:
 
+- RAML and JSON Schema definitions, with supporting JSON examples
+- This documentation set, which provides:
+  - An overview of the API and how it is used.
+  - Normative requirements in addition to those included in the RAML and JSON schemas specifying the API.
+  - Additional details and recommendations for implementers of API providers and clients.
+  - Information about interoperability with other specifications and compatibility between different API versions.
+
+IS-xx is intended to be implemented on Nodes that support [IS-04 NMOS Discovery & Registration](https://specs.amwa.tv/is-04), but it does not depend on such support.
+
+The [NMOS Glossary][Glossary] defines several common terms that have specific meanings in NMOS.
 
 ## Use of Normative Language
 
 The key words "MUST", "MUST NOT", "REQUIRED", "SHALL", "SHALL NOT", "SHOULD", "SHOULD NOT", "RECOMMENDED", "MAY",
-and "OPTIONAL" in this document are to be interpreted as described in [RFC 2119][RFC-2119].
+and "OPTIONAL" in this documentation set are to be interpreted as described in [RFC 2119][RFC-2119].
 
-## Definitions
+## Requirements on Nodes
 
-The NMOS terms 'Node', ... are used as defined in the [NMOS Glossary](https://specs.amwa.tv/nmos/main/docs/Glossary.html).
+A Node MUST implement the [Read/Write Node API](../APIs/ReadWriteNodeAPI.raml).
 
-> List as appropriate
-
-This specification also defines the following terms.
-
-### Example Term
-
-Example definition
-
+[Glossary]: https://specs.amwa.tv/nmos/main/docs/Glossary.html "NMOS Glossary"
 [RFC-2119]: https://tools.ietf.org/html/rfc2119 "Key words for use in RFCs"
