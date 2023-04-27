@@ -53,7 +53,7 @@ documentation:
           example: !include ../examples/rwnodeapi-resource-get-200.json
           type: Resource
       400:
-        description: Returned when the request did not meet the schema
+        description: Returned when the request did not meet the schema or the id does not match the id of the resource
         body:
           type: ErrorSchema
       409:
@@ -108,7 +108,7 @@ documentation:
             example: !include ../examples/rwnodeapi-resource-get-200.json
             type: Resource
         400:
-          description: Returned when the request did not meet the schema
+          description: Returned when the request did not meet the schema or the id does not match the id of the resource
           body:
             type: ErrorSchema
         404:
@@ -167,7 +167,7 @@ documentation:
             example: !include ../examples/rwnodeapi-resource-get-200.json
             type: Resource
         400:
-          description: Returned when the request did not meet the schema
+          description: Returned when the request did not meet the schema or the id does not match the id of the resource
           body:
             type: ErrorSchema
         404:
@@ -226,7 +226,7 @@ documentation:
             example: !include ../examples/rwnodeapi-resource-get-200.json
             type: Resource
         400:
-          description: Returned when the request did not meet the schema
+          description: Returned when the request did not meet the schema or the id does not match the id of the resource
           body:
             type: ErrorSchema
         404:
@@ -285,7 +285,7 @@ documentation:
             example: !include ../examples/rwnodeapi-resource-get-200.json
             type: Resource
         400:
-          description: Returned when the request did not meet the schema
+          description: Returned when the request did not meet the schema or the id does not match the id of the resource
           body:
             type: ErrorSchema
         404:
@@ -344,7 +344,7 @@ documentation:
             example: !include ../examples/rwnodeapi-resource-get-200.json
             type: Resource
         400:
-          description: Returned when the request did not meet the schema
+          description: Returned when the request did not meet the schema or the id does not match the id of the resource
           body:
             type: ErrorSchema
         404:
