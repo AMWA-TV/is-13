@@ -53,11 +53,7 @@ documentation:
           example: !include ../examples/rwnodeapi-resource-get-200.json
           type: Resource
       400:
-        description: Returned when the request did not meet the schema or the id does not match the id of the resource
-        body:
-          type: ErrorSchema
-      409:
-        description: Returned when the version of the resource is newer than the version in the request
+        description: Returned when the request did not meet the schema
         body:
           type: ErrorSchema
       500:
@@ -108,15 +104,11 @@ documentation:
             example: !include ../examples/rwnodeapi-resource-get-200.json
             type: Resource
         400:
-          description: Returned when the request did not meet the schema or the id does not match the id of the resource
+          description: Returned when the request did not meet the schema
           body:
             type: ErrorSchema
         404:
           description: Returned when the requested Source ID does not exist
-          body:
-            type: ErrorSchema
-        409:
-          description: Returned when the version of the resource is newer than the version in the request
           body:
             type: ErrorSchema
         500:
@@ -167,15 +159,11 @@ documentation:
             example: !include ../examples/rwnodeapi-resource-get-200.json
             type: Resource
         400:
-          description: Returned when the request did not meet the schema or the id does not match the id of the resource
+          description: Returned when the request did not meet the schema
           body:
             type: ErrorSchema
         404:
           description: Returned when the requested Flow ID does not exist
-          body:
-            type: ErrorSchema
-        409:
-          description: Returned when the version of the resource is newer than the version in the request
           body:
             type: ErrorSchema
         500:
@@ -226,15 +214,11 @@ documentation:
             example: !include ../examples/rwnodeapi-resource-get-200.json
             type: Resource
         400:
-          description: Returned when the request did not meet the schema or the id does not match the id of the resource
+          description: Returned when the request did not meet the schema
           body:
             type: ErrorSchema
         404:
           description: Returned when the requested Device ID does not exist
-          body:
-            type: ErrorSchema
-        409:
-          description: Returned when the version of the resource is newer than the version in the request
           body:
             type: ErrorSchema
         500:
@@ -285,15 +269,11 @@ documentation:
             example: !include ../examples/rwnodeapi-resource-get-200.json
             type: Resource
         400:
-          description: Returned when the request did not meet the schema or the id does not match the id of the resource
+          description: Returned when the request did not meet the schema
           body:
             type: ErrorSchema
         404:
           description: Returned when the requested Sender ID does not exist
-          body:
-            type: ErrorSchema
-        409:
-          description: Returned when the version of the resource is newer than the version in the request
           body:
             type: ErrorSchema
         500:
@@ -344,15 +324,11 @@ documentation:
             example: !include ../examples/rwnodeapi-resource-get-200.json
             type: Resource
         400:
-          description: Returned when the request did not meet the schema or the id does not match the id of the resource
+          description: Returned when the request did not meet the schema
           body:
             type: ErrorSchema
         404:
           description: Returned when the requested Receiver ID does not exist
-          body:
-            type: ErrorSchema
-        409:
-          description: Returned when the version of the resource is newer than the version in the request
           body:
             type: ErrorSchema
         500:
