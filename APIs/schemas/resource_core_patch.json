@@ -3,6 +3,7 @@
   "type": "object",
   "description": "Describes the foundations of all NMOS resources",
   "title": "Base resource",
+  "additionalProperties": false,
   "properties": {
     "label": {
       "description": "Freeform string label for the resource. Set to null to restore default label.",
