@@ -8,7 +8,7 @@ _(c) AMWA 2021, CC Attribution-NoDerivatives 4.0 International (CC BY-ND 4.0)_
 
 ## Introduction
 
-AMWA IS-xx specifies how to update distinguishing information in an NMOS system.
+AMWA IS-13 specifies how to update distinguishing information in an NMOS system.
 
 - The [Read/Write Node API](../APIs/ReadWriteNodeAPI.raml) is used to update resource labels, descriptions and tags on a Node.
 
@@ -21,7 +21,7 @@ The Specification includes:
   - Additional details and recommendations for implementers of API providers and clients.
   - Information about interoperability with other specifications and compatibility between different API versions.
 
-IS-xx is intended to be implemented on Nodes that support [IS-04 NMOS Discovery & Registration](https://specs.amwa.tv/is-04), but it does not depend on such support.
+IS-13 is intended to be implemented on Nodes that support [IS-04 NMOS Discovery & Registration](https://specs.amwa.tv/is-04), but it does not depend on such support.
 
 The [NMOS Glossary][Glossary] defines several common terms that have specific meanings in NMOS.
 
