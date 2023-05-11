@@ -13,7 +13,8 @@ This repository holds the source for this Specification, part of the family of [
 
 ### Why does it matter?
 
-- It just does.
+- Operators need to be able to distinguish between different resources
+- Often this is aided by user-provided information (beyond what is provided by the vendor through BCP-002-02)
 
 ### How does it work?
 
