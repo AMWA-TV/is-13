@@ -4,16 +4,6 @@
   "description": "Describes the foundations of all NMOS resources",
   "title": "Base resource",
   "properties": {
-    "id": {
-      "description": "Globally unique identifier for the resource",
-      "type": "string",
-      "pattern": "^[0-9a-f]{8}-[0-9a-f]{4}-[1-5][0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"
-    },
-    "version": {
-      "description": "String formatted TAI timestamp (<seconds>:<nanoseconds>) indicating precisely when an attribute of the resource last changed",
-      "type": "string",
-      "pattern": "^[0-9]+:[0-9]+$"
-    },
     "label": {
       "description": "Freeform string label for the resource. Set to null to restore default label.",
       "type": ["null", "string"]
