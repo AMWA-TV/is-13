@@ -26,3 +26,13 @@ The associated `href` is the URL of the Read/Write Node API base resource.
 ```
 
 As shown above the API version is included in the `type`, and in the `href`. Further service endpoints for the Read/Write Node API MAY be advertised for Nodes which support multiple versions simultaneously, or have multiple network interfaces.
+
+## Resource IDs
+
+The UUIDs used to advertise resources in the Read/Write Node API MUST match those used in a corresponding IS-04 implementation.
+The properties of the resources in the Read/Write Node API MUST also match the corresponding IS-04 properties.
+
+## Version Increments
+
+In order to prevent unnecessary polling of the APIs, changes to any resource properties via the Read/Write Node API also update the corresponding IS-04 resource and are therefore signalled via the IS-04 versioning mechanism.
+When a successful `PATCH` request is made, the `version` attribute is incremented.
