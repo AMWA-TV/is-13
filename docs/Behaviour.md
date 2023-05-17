@@ -86,7 +86,7 @@ An API implementation MAY have additional limitations such as:
 - maximum number of tags
 - maximum total size of distinguishing information per resource or across all resources
 
-The API implemenetation MAY reject requests which it cannot process, with a `500` Internal Error response.
+The API implementation MAY reject requests which it cannot process, with a `500` Internal Error response.
 
 ## Successful Response
 
