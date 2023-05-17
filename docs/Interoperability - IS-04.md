@@ -36,3 +36,4 @@ The [Core Resource Properties](Overview.md#core-resource-properties) of the reso
 
 In order to prevent unnecessary polling of the APIs, changes to any resource properties via the Read/Write Node API also update the corresponding IS-04 resource and are therefore signalled via the IS-04 versioning mechanism.
 When a successful `PATCH` request is made, the `version` attribute is incremented.
+The `version` reported in the Read/Write Node API is also updated whenever the corresponding IS-04 resource is updated.
