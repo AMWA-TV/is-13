@@ -8,7 +8,7 @@ When this API is used alongside IS-04 in a deployment, the IS-04 APIs SHOULD be 
 
 ## Discovery
 
-The Read/Write Node API SHOULD be advertised as a service endpoint.
+The Read/Write Node API SHOULD be advertised as a 'service' endpoint under an IS-04 NMOS Node in the `services` array.
 Control interfaces can identify all Nodes which implement the Read/Write Node API by a `type` Uniform Resource Name (URN) having the base `urn:x-nmos:service:rw-node` followed by a `/` character and the API version.
 The associated `href` is the URL of the Read/Write Node API base resource.
 
@@ -19,7 +19,7 @@ The associated `href` is the URL of the Read/Write Node API base resource.
 "services": [
   {
     "type": "urn:x-nmos:service:rw-node/v1.0",
-    "href": "http://192.168.10.3/x-nmos/rwnode/v1.0/"
+    "href": "http://api.example.com/x-nmos/rwnode/v1.0/"
   }
 ]
 ...
@@ -27,10 +27,10 @@ The associated `href` is the URL of the Read/Write Node API base resource.
 
 As shown above the API version is included in the `type`, and in the `href`. Further service endpoints for the Read/Write Node API MAY be advertised for Nodes which support multiple versions simultaneously, or have multiple network interfaces.
 
-## Resource IDs
+## Consistent Resources
 
-The UUIDs used to advertise resources in the Read/Write Node API MUST match those used in a corresponding IS-04 implementation.
-The properties of the resources in the Read/Write Node API MUST also match the corresponding IS-04 properties.
+When used in conjunction with IS-04, the UUIDs of [Resources](Overview.md#resources) in the Read/Write Node API MUST match those in the corresponding IS-04 Node API.
+The [Core Resource Properties](Overview.md#core-resource-properties) of the resources in the Read/Write Node API MUST also match the corresponding IS-04 properties.
 
 ## Version Increments
 
