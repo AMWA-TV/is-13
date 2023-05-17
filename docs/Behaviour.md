@@ -21,7 +21,7 @@ The following `PATCH` request to the `/self` endpoint asks to update the label a
 }
 ```
 
-The following `PATCH` request to the `/devices/21a28338-fb2e-4df5-9b55-d58e6124bc9f` endpoint asks to add, or replace the values, for the "studio" tag but make no change to other tags, the label or description.
+The following `PATCH` request to the `/devices/21a28338-fb2e-4df5-9b55-d58e6124bc9f` endpoint asks to add, or replace the values for, the "studio" tag but make no change to other tags, the label or description.
 
 ```json
 {
