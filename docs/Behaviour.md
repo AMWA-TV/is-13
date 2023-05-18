@@ -77,14 +77,14 @@ Tags in other namespaces can be read-write or read-only.
 
 Some named tags, such as those defined by [BCP-002-01][] and [BCP-002-02][], or by a particular manufacturer, are intended to have read-only values assigned to the resources by the manufactuer.
 
-An API implementation MAY therefore reject requests to update specific named tags, with a `500` Internal Error response.
+An API implementation MAY therefore reject requests to update specific named tags, with a `500` (Internal Server Error) response.
 
 A `PATCH` request with `tags` set to `null` does not update read-only tags.
 
 ## Additional Limitations
 
 Some named tags, have additional limitations, such as needing precisely one element in the array of values.
-An API implementation SHOULD reject requests which do not meet the additional limitations specified for such tags, with a `500` Internal Error response.
+An API implementation SHOULD reject requests which do not meet the additional limitations specified for such tags, with a `500` (Internal Server Error) response.
 
 An API implementation MAY have additional limitations such as:
 - maximum length of strings used as labels, descriptions or tag values
@@ -92,7 +92,7 @@ An API implementation MAY have additional limitations such as:
 - maximum number of tags
 - maximum total size of information per resource or across all resources
 
-The API implementation MAY reject requests which it cannot process, with a `500` Internal Error response.
+The API implementation MAY reject requests which it cannot process, with a `500` (Internal Server Error) response.
 
 ## Successful Response
 
@@ -104,7 +104,7 @@ See the related [Interoperability: IS-04](Interoperability%20-%20IS-04.md#versio
 ## Error Response
 
 Unsuccessful requests MUST produce the error response per the [APIs](APIs.md#error-codes--responses) specification.
-The API is strongly RECOMMENDED to include an informative error response body with `500` Internal Error responses mentioned above, to indicate why the request is rejected.
+The API is strongly RECOMMENDED to include an informative error response body with `500` (Internal Server Error) responses mentioned above, to indicate why the request is rejected.
 
 ## Persistence of Updates
 
