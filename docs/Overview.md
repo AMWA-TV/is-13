@@ -39,7 +39,7 @@ That is a Node resource at the `/self` endpoint, and a number of Devices, Source
 
 ### Core Resource Properties
 
-In the Read/Write Node API, each resource provides only the core resource properties related to identity and distinguishing information.
+In the Read/Write Node API, each resource provides only the core identity and information properties.
 That is, the `id`, `version`, `label`, `description` and `tags`.
 These properties are described in the IS-04 [APIs: Common Keys](https://specs.amwa.tv/is-04/releases/v1.3.2/docs/APIs_-_Common_Keys.html) section.
 
@@ -47,7 +47,7 @@ The `id` provides persistent identity for resources and the `version` identifies
 These are assigned by the node implementing the API.
 
 The `label`, `description` and `tags` of each resource have initial values assigned by the node.
-IS-13 enables these properties to be updated by a client with a `PATCH` request, subject to a node's internal limitations.
+IS-13 enables these core information properties to be updated by a client with a `PATCH` request, subject to a node's internal limitations.
 
 [Glossary]: https://specs.amwa.tv/nmos/main/docs/Glossary.html "NMOS Glossary"
 [RFC-2119]: https://tools.ietf.org/html/rfc2119 "Key words for use in RFCs"
