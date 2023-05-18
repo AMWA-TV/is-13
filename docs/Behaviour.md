@@ -50,8 +50,8 @@ The following `PATCH` request asks to reset the label and "location" tag, at the
 The reset behaviour depends on the API implementation.
 The new values MUST be valid per the schema.
 
-* For labels and descriptions, the implementation MAY restore an initial or configured default value, or set the value to the empty string.
-* For a named tag, the implementation MAY restore an initial or configured default array of values, or remove the named tag from the resource.
+* For labels and descriptions, the implementation MUST either restore an initial or configured default value, or set the value to the empty string.
+* For a named tag, the implementation MUST either restore an initial or configured default array of values, or remove the named tag from the resource.
 
 A `PATCH` request with `tags` set to `null` asks to reset all tags.
 
