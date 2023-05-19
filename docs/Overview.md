@@ -1,4 +1,4 @@
-# AMWA NMOS Read/Write Node Specification: Overview \[Work In Progress\]
+# AMWA NMOS Annotation Specification: Overview \[Work In Progress\]
 {:.no_toc}
 
 * A markdown unordered list which will be replaced with the ToC, excluding the "Contents header" from above
@@ -8,9 +8,9 @@
 
 ## Introduction
 
-AMWA IS-13 specifies how to update distinguishing information in an NMOS system.
+AMWA IS-13 specifies how to update resource annotations in an NMOS system.
 
-- The [Read/Write Node API](../APIs/ReadWriteNodeAPI.raml) is used to update resource labels, descriptions and tags on a Node.
+- The [Annotation API](../APIs/AnnotationAPI.raml) is used to update resource labels, descriptions and tags on a Node.
 
 The Specification includes:
 
@@ -32,22 +32,22 @@ and "OPTIONAL" in this documentation set are to be interpreted as described in [
 
 ## Terminology
 
-### Resources
+### Node Resources
 
-IS-13 uses the same set of resource types and related API endpoints as IS-04.
-That is a Node resource at the `/self` endpoint, and a number of Devices, Sources, Flows, Senders and Receivers at `/{resourceType}/{resourceId}`.
+IS-13 shares a common set of resource types with IS-04 and the Annotation API has endpoints which correspond with the IS-04 Node API.
+Under the Annotation API `/node/` path, there is a Node resource at the `/self` endpoint, and a number of Devices, Sources, Flows, Senders and Receivers at `/{resourceType}/{resourceId}` endpoints.
 
 ### Core Resource Properties
 
-In the Read/Write Node API, each resource provides only the core identity and information properties.
+In the Annotation API, each resource provides only the core identity and annotation properties.
 That is, the `id`, `version`, `label`, `description` and `tags`.
 These properties are described in the IS-04 [APIs: Common Keys](https://specs.amwa.tv/is-04/releases/v1.3.2/docs/APIs_-_Common_Keys.html) section.
 
 The `id` provides persistent identity for resources and the `version` identifies the instant at which a resource most recently changed.
-These are assigned by the node implementing the API.
+These are assigned by the Node implementing the API.
 
-The `label`, `description` and `tags` of each resource have initial values assigned by the node.
-IS-13 enables these core information properties to be updated by a client with a `PATCH` request, subject to a node's internal limitations.
+The `label`, `description` and `tags` of each resource have initial values assigned by the Node.
+IS-13 enables these annotation properties to be updated by a client with a `PATCH` request, subject to a node's internal limitations.
 
 [Glossary]: https://specs.amwa.tv/nmos/main/docs/Glossary.html "NMOS Glossary"
 [RFC-2119]: https://tools.ietf.org/html/rfc2119 "Key words for use in RFCs"
