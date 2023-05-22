@@ -75,7 +75,7 @@ Tags in other namespaces can be read-write or read-only.
 
 ## Read-Only Tags
 
-Some named tags, such as those defined by [BCP-002-01][] and [BCP-002-02][], or by a particular manufacturer, are intended to have read-only values assigned to the resources by the manufactuer.
+Some named tags, such as those defined by [BCP-002-01][] and [BCP-002-02][], or by a particular manufacturer, are intended to have read-only values assigned to the resources by the manufacturer.
 
 An API implementation MAY therefore reject requests to update specific named tags, with a `500` (Internal Server Error) response.
 
