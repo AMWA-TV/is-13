@@ -1,4 +1,4 @@
-# \[Work In Progress\] AMWA IS-13 NMOS Read/Write Node Specification
+# \[Work In Progress\] AMWA IS-13 NMOS Annotation Specification
 
 [![Lint Status](https://github.com/AMWA-TV/is-13/workflows/Lint/badge.svg)](https://github.com/AMWA-TV/is-13/actions?query=workflow%3ALint)
 [![Render Status](https://github.com/AMWA-TV/is-13/workflows/Render/badge.svg)](https://github.com/AMWA-TV/is-13/actions?query=workflow%3ARender)

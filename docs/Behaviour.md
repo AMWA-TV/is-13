@@ -6,13 +6,13 @@
 
 <!-- _(c) AMWA 2023, CC Attribution-NoDerivatives 4.0 International (CC BY-ND 4.0)_  -->
 
-The Read/Write Node API provides access to the [core information properties](Overview.md#core-resource-properties) associated with a particular resource, uniquely identified by its ID.
+The Annotation API provides access to the [annotation properties](Overview.md#core-resource-properties) associated with a particular resource, uniquely identified by its ID.
 
 ## Setting Values
 
 The API allows clients to independently set values for `label`, `description` and individually named `tags`.
 
-The following `PATCH` request to the `/self` endpoint asks to update the label and description but make no change to the tags associated with the Node resource.
+The following `PATCH` request to the `/node/self` endpoint asks to update the label and description but make no change to the tags associated with the Node resource.
 
 ```json
 {
@@ -21,7 +21,7 @@ The following `PATCH` request to the `/self` endpoint asks to update the label a
 }
 ```
 
-The following `PATCH` request to the `/devices/21a28338-fb2e-4df5-9b55-d58e6124bc9f` endpoint asks to add, or replace the values for, the "studio" tag but make no change to other tags, the label or description.
+The following `PATCH` request to the `/node/devices/21a28338-fb2e-4df5-9b55-d58e6124bc9f` endpoint asks to add, or replace the values for, the "studio" tag but make no change to other tags, the label or description.
 
 ```json
 {
@@ -55,7 +55,7 @@ The new values MUST be valid per the schema.
 
 A `PATCH` request with `tags` set to `null` asks to reset all tags.
 
-The following `PATCH` request asks to reset all the core information properties for a resource.
+The following `PATCH` request asks to reset all the annotation properties for a resource.
 
 ```json
 {
@@ -90,7 +90,7 @@ An API implementation MAY have additional limitations such as:
 - maximum length of strings used as labels, descriptions or tag values
 - maximum number of values for each named tag
 - maximum number of tags
-- maximum total size of information per resource or across all resources
+- maximum total size of annotations per resource or across all resources
 
 The API implementation MAY reject requests which it cannot process, with a `500` (Internal Server Error) response.
 
@@ -108,7 +108,7 @@ The API is strongly RECOMMENDED to include an informative error response body wi
 
 ## Persistence of Updates
 
-The API implementation MUST persist updates to the core information properties for the lifetime of a resource uniquely identified by its ID, including consistency over reboots, power cycles, and software upgrades.
+The API implementation MUST persist updates to the annotation properties for the lifetime of a resource uniquely identified by its ID, including consistency over reboots, power cycles, and software upgrades.
 
 [BCP-002-01]: https://specs.amwa.tv/bcp-002-01 "BCP-002-01 Natural Grouping of NMOS Resources"
 [BCP-002-02]: https://specs.amwa.tv/bcp-002-02 "BCP-002-02 NMOS Asset Distinguishing Information"

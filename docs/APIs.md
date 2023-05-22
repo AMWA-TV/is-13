@@ -8,7 +8,7 @@ _(c) AMWA 2023, CC Attribution-NoDerivatives 4.0 International (CC BY-ND 4.0)_
 
 ## API Specifications
 
-The Read/Write Node API is specified using:
+The Annotation API is specified using:
 
 - The following sub-sections describing common NMOS API properties.
 - [RAML](http://raml.org/) documents and [JSON schemas](http://tools.ietf.org/html/draft-zyp-json-schema-04) in the [APIs](../APIs/) folder.
@@ -18,7 +18,7 @@ Examples of JSON format output are provided in the [examples](../examples/) fold
 
 ## API Validation
 
-JSON schemas are included with the RAML API definitions. These include validation for values used within the APIs. It is RECOMMENDED that implementers of a Read/Write Node API use these JSON schemas as part of a validation stage when receiving requests from clients. Invalid requests SHOULD cause a `400` (Bad Request) HTTP error to be returned to the client.
+JSON schemas are included with the RAML API definitions. These include validation for values used within the APIs. It is RECOMMENDED that implementers of a Annotation API use these JSON schemas as part of a validation stage when receiving requests from clients. Invalid requests SHOULD cause a `400` (Bad Request) HTTP error to be returned to the client.
 
 ### Content Types
 
@@ -38,7 +38,7 @@ At each level of the API from the base resource upwards, the response SHOULD inc
 
 All public APIs are versioned as follows:
 
-- Requesting the API base resource (such as `http(s)://<ip address or hostname>:<port>/x-nmos/rwnode/`) will provide a list containing the versions of the API present on the node.
+- Requesting the API base resource (such as `http(s)://<ip address or hostname>:<port>/x-nmos/annotation/`) will provide a list containing the versions of the API present on the node.
 - A versioned API response MUST include only resources which match the schema for that API version.
 - Data which is held for mismatched minor API versions MAY be returned if it can be conformed to the correct schema (see example below). Data MUST NOT be conformed between major API versions.
 
