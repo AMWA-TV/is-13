@@ -83,7 +83,7 @@ A `PATCH` request with `tags` set to `null` does not update read-only tags.
 
 ## Additional Limitations
 
-Some named tags, have additional limitations, such as needing precisely one element in the array of values.
+Some named tags have additional limitations, such as needing precisely one element in the array of values.
 An API implementation SHOULD reject requests which do not meet the additional limitations specified for such tags, with a `500` (Internal Server Error) response.
 
 An API implementation MAY have additional limitations such as:
