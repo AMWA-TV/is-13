@@ -32,6 +32,11 @@ As shown above the API version is included in the `type`, and in the `href`. Fur
 When used in conjunction with IS-04, the UUIDs of [Node Resources](Overview.md#node-resources) in the Annotation API MUST match those in the corresponding IS-04 Node API.
 The [Core Resource Properties](Overview.md#core-resource-properties) of the resources under the Annotation API `/node/` path MUST also match the corresponding IS-04 properties.
 
+The Annotation API MUST include the Node (`/self`), Device, Sender and Receiver resources corresponding to all resources of those types in the Node API.
+The Annotation API MAY include corresponding Source and Flow resources.
+
+When the Node does not support annotation of Sources or Flows, the response to a `GET` request on the `/node/sources` or `/node/flows` endpoints is an empty array `[]`.
+
 ## Version Increments
 
 In order to prevent unnecessary polling of the APIs, changes to any resource properties via the Annotation API also update the corresponding IS-04 resource and are therefore signalled via the IS-04 versioning mechanism.
