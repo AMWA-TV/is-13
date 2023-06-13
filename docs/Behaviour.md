@@ -86,13 +86,17 @@ A `PATCH` request with `tags` set to `null` does not update read-only tags.
 Some named tags have additional limitations, such as needing precisely one element in the array of values.
 An API implementation SHOULD reject requests which do not meet the additional limitations specified for such tags, with a `500` (Internal Server Error) response.
 
-An API implementation MAY have additional limitations such as:
-- maximum length of strings used as labels, descriptions or tag values
-- maximum number of values for each named tag
-- maximum number of tags
-- maximum total size of annotations per resource or across all resources
+Minimum requirements on supported annotations are specified in terms of size in Bytes when encoded in UTF-8.
 
-The API implementation MAY reject requests which it cannot process, with a `500` (Internal Server Error) response.
+* An API implementation MUST support writing a label of up to 32 Bytes for every resource.
+* An API implementation SHOULD support writing a description of up to 32 Bytes for every resource.
+* An API implementation MUST support writing at least 1 tag for every resource with:
+  * a name `urn:x-nmos:tag:user:<name>` including a `name` part of up to 32 Bytes
+  * an array of values with 1 element of up to 32 Bytes.
+* An API implementation SHOULD support writing at least 5 such tags for every resource.
+* An API implementation MAY support further annotation for some or all resources, for example based on the total size of annotations across all resources.
+
+The API implementation MUST reject requests which it cannot process, with a `500` (Internal Server Error) response.
 
 ## Successful Response
 
