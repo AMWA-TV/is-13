@@ -88,15 +88,20 @@ An API implementation SHOULD reject requests which do not meet the additional li
 
 Minimum requirements on supported annotations are specified in terms of size in Bytes when encoded in UTF-8.
 
-* An API implementation MUST support writing a label of up to 32 Bytes for every resource.
-* An API implementation SHOULD support writing a description of up to 32 Bytes for every resource.
+* An API implementation MUST support writing a label of up to 64 Bytes for every resource.
+* An API implementation SHOULD support writing a description of up to 64 Bytes for every resource.
 * An API implementation MUST support writing at least 1 tag for every resource with:
-  * a name `urn:x-nmos:tag:user:<name>` including a `name` part of up to 32 Bytes
-  * an array of values with 1 element of up to 32 Bytes.
+  * a name of up to 64 Bytes with the URN prefix `urn:x-nmos:tag:user:`
+  * an array of values with 1 element of up to 64 Bytes.
 * An API implementation SHOULD support writing at least 5 such tags for every resource.
 * An API implementation MAY support further annotation for some or all resources, for example based on the total size of annotations across all resources.
 
 The API implementation MUST reject requests which it cannot process, with a `500` (Internal Server Error) response.
+
+Notes:
+* UTF-8 is a variable length encoding so 64 Bytes does not equate to a fixed number of code points or characters. The first 128 code points in the Basic Latin (ASCII) Unicode block (U+0000 to U+007F) need 1 Byte, the next 1920 code points (U+0080 to U+07FF) which cover the remainder of almost all Latin-script alphabets need 2 Bytes, and the remaining 61440 code points of the Basic Multilingual Plane (BMP), including most Chinese, Japanese and Korean characters (U+0800 to U+FFFF) need 3 Bytes. Code points in the Supplementary Planes (U+10000 to U+10FFFF) take 4 Bytes.
+  The 64 Byte minimum requirement therefore corresponds to between 16 and 64 code points.
+* Uniform Resource Names (URNs) are restricted to a subset of characters within the ASCII range by [RFC 8141][RFC-8141] and use the percent-encoding mechanism defined by [RFC 3986][RFC-3986] for octets outside this subset, which increases the number of Bytes taken to encode those characters. RFC 8141 recommends not using characters outside the ASCII range.
 
 ## Successful Response
 
@@ -116,3 +121,5 @@ The API implementation MUST persist updates to the annotation properties for the
 
 [BCP-002-01]: https://specs.amwa.tv/bcp-002-01 "BCP-002-01 Natural Grouping of NMOS Resources"
 [BCP-002-02]: https://specs.amwa.tv/bcp-002-02 "BCP-002-02 NMOS Asset Distinguishing Information"
+[RFC-3986]: https://tools.ietf.org/html/rfc3986 "RFC 3986: Uniform Resource Identifier (URI): Generic Syntax"
+[RFC-8141]: https://tools.ietf.org/html/rfc8141 "RFC 8141: Uniform Resource Names (URNs)"
