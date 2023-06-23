@@ -110,5 +110,8 @@ The API is strongly RECOMMENDED to include an informative error response body wi
 
 The API implementation MUST persist updates to the annotation properties for the lifetime of a resource uniquely identified by its ID, including consistency over reboots, power cycles, and software upgrades.
 
+The lifetime of a resource ends when the API implementation intends not to use its ID again.
+If the implementation removes the resource from the API, for example when switching away from its current operating profile, but can reinstate the resource with the same ID later, for example as a result of switching back to that operating profile, the lifetime of the resource has not ended and the annotation properties MUST be persisted.
+
 [BCP-002-01]: https://specs.amwa.tv/bcp-002-01 "BCP-002-01 Natural Grouping of NMOS Resources"
 [BCP-002-02]: https://specs.amwa.tv/bcp-002-02 "BCP-002-02 NMOS Asset Distinguishing Information"
