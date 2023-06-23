@@ -94,14 +94,18 @@ Minimum requirements on supported annotations are specified in terms of size in 
   * a name of up to 64 Bytes with the URN prefix `urn:x-nmos:tag:user:`
   * an array of values with 1 element of up to 64 Bytes.
 * An API implementation SHOULD support writing at least 5 such tags for every resource.
-* An API implementation MAY support further annotation for some or all resources, for example based on the total size of annotations across all resources.
-
-The API implementation MUST reject requests which it cannot process, with a `500` (Internal Server Error) response.
 
 Notes:
-* UTF-8 is a variable length encoding so 64 Bytes does not equate to a fixed number of code points or characters. The first 128 code points in the Basic Latin (ASCII) Unicode block (U+0000 to U+007F) need 1 Byte, the next 1920 code points (U+0080 to U+07FF) which cover the remainder of almost all Latin-script alphabets need 2 Bytes, and the remaining 61440 code points of the Basic Multilingual Plane (BMP), including most Chinese, Japanese and Korean characters (U+0800 to U+FFFF) need 3 Bytes. Code points in the Supplementary Planes (U+10000 to U+10FFFF) take 4 Bytes.
+* UTF-8 is a variable length encoding so 64 Bytes does not equate to a fixed number of code points or characters.
+  The first 128 code points in the Basic Latin (ASCII) Unicode block (U+0000 to U+007F) need 1 Byte, the next 1920 code points (U+0080 to U+07FF) which cover the remainder of almost all Latin-script alphabets need 2 Bytes, and the remaining 61440 code points of the Basic Multilingual Plane (BMP), including most Chinese, Japanese and Korean characters (U+0800 to U+FFFF) need 3 Bytes.
+  Code points in the Supplementary Planes (U+10000 to U+10FFFF) take 4 Bytes.
   The 64 Byte minimum requirement therefore corresponds to between 16 and 64 code points.
 * Uniform Resource Names (URNs) are restricted to a subset of characters within the ASCII range by [RFC 8141][RFC-8141] and use the percent-encoding mechanism defined by [RFC 3986][RFC-3986] for octets outside this subset, which increases the number of Bytes taken to encode those characters. RFC 8141 recommends not using characters outside the ASCII range.
+* These minimum requirements are chosen with highly memory-constrained devices in mind.
+  Manufacturers are encouraged to support further annotation for some or all resources, i.e. larger values, more values per tag, and more tags.
+  An API implementation can have higher limits, for example based on the total size of annotations across all resources.
+
+The API implementation MUST reject requests which it cannot process, with a `500` (Internal Server Error) response.
 
 ## Successful Response
 
