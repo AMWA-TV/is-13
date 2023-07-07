@@ -1,7 +1,7 @@
 # Behaviour
 {:.no_toc}
 
-* A markdown unordered list which will be replaced with the ToC, excluding the "Contents header" from above
+- A markdown unordered list which will be replaced with the ToC, excluding the "Contents header" from above
 {:toc}
 
 <!-- _(c) AMWA 2023, CC Attribution-NoDerivatives 4.0 International (CC BY-ND 4.0)_  -->
@@ -50,8 +50,8 @@ The following `PATCH` request asks to reset the label and "location" tag, at the
 The reset behaviour depends on the API implementation.
 The new values MUST be valid per the schema.
 
-* For labels and descriptions, the implementation MUST either restore an initial or configured default value, or set the value to the empty string.
-* For a named tag, the implementation MUST either restore an initial or configured default array of values, or remove the named tag from the resource.
+- For labels and descriptions, the implementation MUST either restore an initial or configured default value, or set the value to the empty string.
+- For a named tag, the implementation MUST either restore an initial or configured default array of values, or remove the named tag from the resource.
 
 A `PATCH` request with `tags` set to `null` asks to reset all tags.
 
@@ -86,13 +86,27 @@ A `PATCH` request with `tags` set to `null` does not update read-only tags.
 Some named tags have additional limitations, such as needing precisely one element in the array of values.
 An API implementation SHOULD reject requests which do not meet the additional limitations specified for such tags, with a `500` (Internal Server Error) response.
 
-An API implementation MAY have additional limitations such as:
-- maximum length of strings used as labels, descriptions or tag values
-- maximum number of values for each named tag
-- maximum number of tags
-- maximum total size of annotations per resource or across all resources
+Minimum requirements on supported annotations are specified in terms of size in Bytes when encoded in UTF-8.
 
-The API implementation MAY reject requests which it cannot process, with a `500` (Internal Server Error) response.
+- An API implementation MUST support writing a label of up to 64 Bytes for every resource.
+- An API implementation SHOULD support writing a description of up to 64 Bytes for every resource.
+- An API implementation MUST support writing at least 1 tag for every resource with:
+  - a name of up to 64 Bytes with the URN prefix `urn:x-nmos:tag:user:`
+  - an array of values with 1 element of up to 64 Bytes.
+- An API implementation SHOULD support writing at least 5 such tags for every resource.
+
+Notes:
+
+- UTF-8 is a variable length encoding so 64 Bytes does not equate to a fixed number of code points or characters.
+  The first 128 code points in the Basic Latin (ASCII) Unicode block (U+0000 to U+007F) need 1 Byte, the next 1920 code points (U+0080 to U+07FF) which cover the remainder of almost all Latin-script alphabets need 2 Bytes, and the remaining 61440 code points of the Basic Multilingual Plane (BMP), including most Chinese, Japanese and Korean characters (U+0800 to U+FFFF) need 3 Bytes.
+  Code points in the Supplementary Planes (U+10000 to U+10FFFF) take 4 Bytes.
+  The 64 Byte minimum requirement therefore corresponds to between 16 and 64 code points.
+- Uniform Resource Names (URNs) are restricted to a subset of characters within the ASCII range by [RFC 8141][RFC-8141] and use the percent-encoding mechanism defined by [RFC 3986][RFC-3986] for octets outside this subset, which increases the number of Bytes taken to encode those characters. RFC 8141 recommends not using characters outside the ASCII range.
+- These minimum requirements are chosen with highly memory-constrained devices in mind.
+  Manufacturers are encouraged to support further annotation for some or all resources, i.e. larger values, more values per tag, and more tags.
+  An API implementation can have higher limits, for example based on the total size of annotations across all resources.
+
+The API implementation MUST reject requests which it cannot process, with a `500` (Internal Server Error) response.
 
 ## Successful Response
 
@@ -115,3 +129,5 @@ If the implementation removes the resource from the API, for example when switch
 
 [BCP-002-01]: https://specs.amwa.tv/bcp-002-01 "BCP-002-01 Natural Grouping of NMOS Resources"
 [BCP-002-02]: https://specs.amwa.tv/bcp-002-02 "BCP-002-02 NMOS Asset Distinguishing Information"
+[RFC-3986]: https://tools.ietf.org/html/rfc3986 "RFC 3986: Uniform Resource Identifier (URI): Generic Syntax"
+[RFC-8141]: https://tools.ietf.org/html/rfc8141 "RFC 8141: Uniform Resource Names (URNs)"
