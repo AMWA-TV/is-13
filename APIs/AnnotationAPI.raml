@@ -344,3 +344,122 @@ documentation:
             description: Returned when the request did not meet the API's additional constraints
             body:
               type: ErrorSchema
+/streamcompatibility:
+  displayName: Stream Compatibility Management
+  get:
+    description: List of paths available from this API
+    responses:
+      200:
+        body:
+          example: !include ../examples/annotationapi-streamcompatibility-base-get-200.json
+          type: !include schemas/annotationapi-streamcompatibility-base.json
+  /inputs:
+    displayName: Inputs
+    get:
+      description: List Inputs
+      responses:
+        200:
+          body:
+            example: !include ../examples/annotationapi-node-resources-get-200.json
+            type: Resources
+    /{inputId}:
+      uriParameters:
+        sourceId:
+          type: string
+          pattern: "^[0-9a-f]{8}-[0-9a-f]{4}-[1-5][0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"
+      get:
+        description: Get annotations of a single Input
+        responses:
+          200:
+            body:
+              example: !include ../examples/annotationapi-node-resource-get-200.json
+              type: Resource
+          404:
+            description: Returned when the requested Input ID does not exist
+            body:
+              type: ErrorSchema
+      options:
+        description: A pre-flight check generally used for Cross-Origin Resource Sharing (CORS) purposes
+        responses:
+          200:
+          403:
+          404:
+      patch:
+        description: Update annotations of a single Input
+        body:
+          type: ResourcePatch
+          examples:
+            label-description: !include ../examples/annotationapi-node-resource-patch.json
+            tags: !include ../examples/annotationapi-node-resource-patch-tags.json
+        responses:
+          200:
+            body:
+              example: !include ../examples/annotationapi-node-resource-get-200.json
+              type: Resource
+          400:
+            description: Returned when the request did not meet the schema
+            body:
+              type: ErrorSchema
+          404:
+            description: Returned when the requested Input ID does not exist
+            body:
+              type: ErrorSchema
+          500:
+            description: Returned when the request did not meet the API's additional constraints
+            body:
+              type: ErrorSchema
+  /outputs:
+    displayName: Outputs
+    get:
+      description: List Outputs
+      responses:
+        200:
+          body:
+            example: !include ../examples/annotationapi-node-resources-get-200.json
+            type: Resources
+    /{outputId}:
+      uriParameters:
+        sourceId:
+          type: string
+          pattern: "^[0-9a-f]{8}-[0-9a-f]{4}-[1-5][0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"
+      get:
+        description: Get annotations of a single Output
+        responses:
+          200:
+            body:
+              example: !include ../examples/annotationapi-node-resource-get-200.json
+              type: Resource
+          404:
+            description: Returned when the requested Output ID does not exist
+            body:
+              type: ErrorSchema
+      options:
+        description: A pre-flight check generally used for Cross-Origin Resource Sharing (CORS) purposes
+        responses:
+          200:
+          403:
+          404:
+      patch:
+        description: Update annotations of a single Output
+        body:
+          type: ResourcePatch
+          examples:
+            label-description: !include ../examples/annotationapi-node-resource-patch.json
+            tags: !include ../examples/annotationapi-node-resource-patch-tags.json
+        responses:
+          200:
+            body:
+              example: !include ../examples/annotationapi-node-resource-get-200.json
+              type: Resource
+          400:
+            description: Returned when the request did not meet the schema
+            body:
+              type: ErrorSchema
+          404:
+            description: Returned when the requested Output ID does not exist
+            body:
+              type: ErrorSchema
+          500:
+            description: Returned when the request did not meet the API's additional constraints
+            body:
+              type: ErrorSchema

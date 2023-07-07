@@ -1,0 +1,16 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "type": "object",
+  "description": "Describes the Annotation API streamcompatibility resource",
+  "title": "Annotation API streamcompatibility resource",
+  "items": {
+    "type": "string",
+    "enum": [
+      "inputs/",
+      "outputs/"
+    ]
+  },
+  "minItems": 2,
+  "maxItems": 2,
+  "uniqueItems": true
+}
