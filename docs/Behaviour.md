@@ -91,7 +91,7 @@ Minimum requirements on supported annotations are specified in terms of size in 
 - An API implementation MUST support writing a label of up to 64 Bytes for every resource.
 - An API implementation SHOULD support writing a description of up to 64 Bytes for every resource.
 - An API implementation MUST support writing at least 1 tag for every resource with:
-  - a name of up to 64 Bytes with the URN prefix `urn:x-nmos:tag:user:`
+  - a name of up to 64 Bytes beginning with the URN prefix `urn:x-nmos:tag:user:`
   - an array of values with 1 element of up to 64 Bytes.
 - An API implementation SHOULD support writing at least 5 such tags for every resource.
 
