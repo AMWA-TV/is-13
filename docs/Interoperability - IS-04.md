@@ -39,6 +39,8 @@ When the Node does not support annotation of Sources or Flows, the response to a
 
 ## Version Increments
 
-In order to prevent unnecessary polling of the APIs, changes to any resource properties via the Annotation API also update the corresponding IS-04 resource and are therefore signalled via the IS-04 versioning mechanism.
+In order to prevent unnecessary polling of the APIs, changes to any resource properties via the Annotation API also update the corresponding IS-04 resource and are therefore signalled via the [IS-04 versioning mechanism](https://specs.amwa.tv/is-04/latest/docs/APIs_-_Common_Keys.html#version).
 When a successful `PATCH` request is made, the `version` attribute is incremented.
 The `version` reported in the Annotation API is also updated whenever the corresponding IS-04 resource is updated.
+
+Note: In registered operation, [IS-04 registration updates](https://specs.amwa.tv/is-04/latest/docs/Behaviour_-_Registration.html#registration-updates) enable Controllers to receive notifications of the changes via Query API WebSocket subscriptions.
