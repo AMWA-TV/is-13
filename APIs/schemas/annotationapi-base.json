@@ -1,6 +1,6 @@
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
-  "type": "object",
+  "type": "array",
   "description": "Describes the Annotation API base resource",
   "title": "Annotation API base resource",
   "items": {
