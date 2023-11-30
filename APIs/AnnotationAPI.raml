@@ -132,7 +132,7 @@ documentation:
         200:
           body:
             example: !include ../examples/annotationapi-node-resources-get-200.json
-            type: Flows
+            type: Resources
     /{flowId}:
       uriParameters:
         flowId:
@@ -144,7 +144,7 @@ documentation:
           200:
             body:
               example: !include ../examples/annotationapi-node-resource-get-200.json
-              type: Flow
+              type: Resource
           404:
             description: Returned when the requested Flow ID does not exist
             body:
@@ -187,7 +187,7 @@ documentation:
         200:
           body:
             example: !include ../examples/annotationapi-node-resources-get-200.json
-            type: Devices
+            type: Resources
     /{deviceId}:
       uriParameters:
         deviceId:
@@ -199,7 +199,7 @@ documentation:
           200:
             body:
               example: !include ../examples/annotationapi-node-resource-get-200.json
-              type: Device
+              type: Resource
           404:
             description: Returned when the requested Device ID does not exist
             body:
@@ -242,7 +242,7 @@ documentation:
         200:
           body:
             example: !include ../examples/annotationapi-node-resources-get-200.json
-            type: Senders
+            type: Resources
     /{senderId}:
       uriParameters:
         senderId:
@@ -254,7 +254,7 @@ documentation:
           200:
             body:
               example: !include ../examples/annotationapi-node-resource-get-200.json
-              type: Sender
+              type: Resource
           404:
             description: Returned when the requested Sender ID does not exist
             body:
@@ -297,7 +297,7 @@ documentation:
         200:
           body:
             example: !include ../examples/annotationapi-node-resources-get-200.json
-            type: Receivers
+            type: Resources
     /{receiverId}:
       uriParameters:
         receiverId:
