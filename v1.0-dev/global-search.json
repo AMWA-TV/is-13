@@ -3,12 +3,6 @@
   "repository": "AMWA-TV/is-13",
   "documents": [
     {
-      "title": "Page not found",
-      "url": "https://specs.amwa.tv/is-13/latest/404/",
-      "text": "Page not found Page not found Page not found - [Work In Progress] AMWA IS-13 NMOS Annotation Specification Skip to content Page not found The page you requested could not be found. Return to the documentation home",
-      "repository": "AMWA-TV/is-13"
-    },
-    {
       "title": "AnnotationAPI",
       "url": "https://specs.amwa.tv/is-13/latest/APIs/AnnotationAPI/",
       "text": "AnnotationAPI AnnotationAPI AnnotationAPI - [Work In Progress] AMWA IS-13 NMOS Annotation Specification Skip to content AnnotationAPI The Annotation API is exposed by NMOS Nodes that support update of resource labels, descriptions and tags. Open AnnotationAPI API documentation",
