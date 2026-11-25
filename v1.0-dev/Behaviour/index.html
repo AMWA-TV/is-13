@@ -1681,10 +1681,10 @@ An API implementation SHOULD reject requests which do not meet the additional li
 <ul>
 <li>An API implementation MUST support writing a label of up to 64 Bytes for every resource.</li>
 <li>An API implementation SHOULD support writing a description of up to 64 Bytes for every resource.</li>
-<li>An API implementation MUST support writing at least 1 tag for every resource with:</li>
+<li>An API implementation MUST support writing at least 5 tags for every resource, each with:</li>
 <li>a name of up to 64 Bytes beginning with the URN prefix <code>urn:x-nmos:tag:user:</code></li>
 <li>an array of values with 1 element of up to 64 Bytes.</li>
-<li>An API implementation SHOULD support writing at least 5 such tags for every resource.</li>
+<li>An API implementation SHOULD support writing an array of values with at least 5 elements, each of up to 64 Bytes, for each such tag.</li>
 </ul>
 <p>Notes:</p>
 <ul>
